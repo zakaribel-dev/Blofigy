@@ -13,7 +13,7 @@
                     <p class="post-content"><%= post.content %></p>
                 
                 <small class="post-meta">
-                  Post écrit par <%= post.author ? post.author.username : 'Inconnu' %> - <%= new Date(post.createdAt).toLocaleDateString() %>
+                    Post écrit par <%= post.author.username %> - <%= new Date(post.createdAt).toLocaleDateString() %>
                 </small>
 
                 <form action="/posts/<%= post._id %>/like" method="POST">
