@@ -45,7 +45,7 @@ DELETE /comments/:id: Delete a comment.
 
 Purpose of swagger.js ? it generates a yaml openAPI file by doing "node swagger.js"
 
-Views structure : Why did i create a "partials" package inside the view package ? Well, having some experience with react gave me structure automatism. i like to cut my views part into components so it can be easier to make it evolve
+Views structure : Why did i create a "partials" package inside the view package ? Well, having some experience with React gave me structure automatisms. i like to cut my views parts into components so it can be easier to make it evolve
 
 ## Start
 <br>
