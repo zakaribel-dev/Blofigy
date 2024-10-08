@@ -92,7 +92,6 @@ router.post('/:id/comments', async (req, res) => {
     } catch (err) {
       console.log('Error adding comment:', err);
       return res.redirect('/?error=Erreur ajout commentaire'); 
-
     }
   });
 
@@ -108,7 +107,7 @@ router.post('/:id/like', async (req, res) => {
       if (!post.likes.includes(userId)) { // jverif si l'user a déjà like le post
           post.likes.push(userId); // si c'est pas le cas alors jlajoute à la liste d'user qui ont like le post
       } else {
-          post.likes = post.likes.filter((like) => like.toString() !== userId.toString()); // si il a déjà liké le post alors jle retire de la liste des likes
+          post.likes = post.likes.filter((like) => like.toString() !== userId.toString());// si il a déjà liké le post alors jle retire de la liste des likes
       }
 
       await post.save();
