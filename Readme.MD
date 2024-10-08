@@ -16,7 +16,7 @@ CRUD Operations for Users:
 
 GET /users/:id: Retrieve a specific user's profile.
 PUT /users/:id: Update user profile.
-DELETE /users/:id: Delete a user account (soft delete with status).
+DELETE /users/:id: Delete a user account (soft delete with status). <br>
 2. Blog Post Management:
 Creating Posts: Users can create blog posts on various topics.
 
@@ -29,7 +29,7 @@ GET /posts/:id: Retrieve a specific blog post.
 Editing and Deleting Posts:
 
 PUT /posts/:id: Update an existing blog post.
-DELETE /posts/:id: Soft delete or permanently remove a blog post.
+DELETE /posts/:id: Soft delete or permanently remove a blog post. <br>
 3. Commenting System:
 Adding Comments: Users can comment on any blog post.
 
@@ -39,12 +39,12 @@ Managing Comments:
 
 PUT /comments/:id: Edit a comment.
 DELETE /comments/:id: Delete a comment.
-
+<br>
 
 Purpose of swagger.js ? it generates a yaml openAPI file by doing "node swagger.js"
 
 Views structure : Why did i create a "partials" package inside the view package ? Well, having some experience with react gave me structure automatism. i like to cut my views part into components so it can be easier to make it evolve
 
 ## Start
-
+<br>
 1. cd ./blogify, npm install, nodemon server.js
