@@ -53,6 +53,7 @@ mongoose.connect(uri)
         const message = req.query.message || null;
         const registered = req.query.registered === 'true'; // je convertis la variable get en booleen avec l'égalité absolue "==="
         const error = req.query.error || null
+        
       res.render('index', { user: req.user, posts, error,  message, registered});
     } catch (err) {
       console.log('Error fetching posts:', err);
