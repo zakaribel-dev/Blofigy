@@ -5,8 +5,8 @@ const methodOverride = require("method-override");// PÖURQUOI method override ?
 // je dois "tromper" express en faisant croire que ce sont des methodes post.
 // Du coup dans mes requêtes client j'ia juste à preciser un parametre "_method=<vraie_methode>"
 const cookieParser = require("cookie-parser");
-const userRoutes = require('./routes/userRoutes');
-const postRoutes = require('./routes/postRoutes');
+const userRoutes = require('./routes/User');
+const postRoutes = require('./routes/Post');
 const Post = require('./models/Post');
 const { checkUser } = require('./middleware/auth'); 
 require('dotenv').config();
