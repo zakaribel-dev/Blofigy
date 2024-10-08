@@ -22,6 +22,7 @@ Creating Posts: Users can create blog posts on various topics.
 
 Fields: Title, Content, Author (user reference), Tags, Timestamps (created_at, updated_at).
 Route: POST /posts
+
 Reading Posts: Allow retrieval of all posts, or specific ones by ID.
 
 Route: GET /posts (with optional filters like tag, author, date).
@@ -35,6 +36,7 @@ Adding Comments: Users can comment on any blog post.
 
 Fields: Comment Text, Author, Post ID, Timestamp.
 Route: POST /posts/:id/comments
+ <br> <br>
 Managing Comments:
 
 PUT /comments/:id: Edit a comment.
