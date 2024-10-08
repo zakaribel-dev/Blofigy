@@ -11,7 +11,8 @@ router.post('/register', async (req, res) => {
       const username = req.body.username
       const password = req.body.password
 
-      const existingUser = await User.findOne({ $or: [{ email }, { username }] }); // or pour verifier si tel OU tel valeur est en bdd
+      const existingUser = await User.findOne({ $or: [{ email }, { username }] }); // $or pour verifier si tel OU tel valeur est en bdd
+      // go check ici  https://mongoosejs.com/docs/api/query.html#Query.prototype.or()
 
       if (existingUser) {
         return res.redirect('/?error=utilisateur déjà existant !&registered=false'); 
@@ -22,7 +23,7 @@ router.post('/register', async (req, res) => {
       await user.save();
 
       return res.redirect('/?message=Compte créé avec succès !&registered=true'); 
-      
+
     } catch (err) {
       console.log('Error during registration:', err);
       return res.render('index', { error: 'Erreur lors de la création du compte.', user: null });
@@ -104,7 +105,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    await User.findByIdAndUpdate(req.params.id, { status: 'deleted' });
+    await User.findByIdAndUpdate(req.params.id, { status: 'deleted' }); // juste un petit soft delete qui va passer le status en deleted..
 
     res.clearCookie('token');  // déco
 

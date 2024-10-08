@@ -47,6 +47,7 @@ Purpose of swagger.js ? it generates a yaml openAPI file by doing "node swagger.
 
 Views structure : Why did i create a "partials" package inside the view package ? Well, having some experience with React gave me structure automatisms. i like to cut my views parts into components so it can be easier to make it evolve
 
+
 ## Start
 <br>
 1. cd ./blogify, npm install, nodemon server.js

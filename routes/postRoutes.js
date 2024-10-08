@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
 
-router.get('/new', (req, res) => {
+router.get('/new', (req, res) => { // endpoint affichage formulaire nouveau post 
 
   if(!req.user){
    return res.redirect('/?error=Vous êtes pas connecté'); 
@@ -61,7 +61,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
 
-        const post = await Post.findById(id);
+        await Post.findById(id);
 
         await Post.deleteOne({ _id: id });
         res.redirect('/');
