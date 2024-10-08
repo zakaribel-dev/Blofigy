@@ -1,0 +1,408 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Blogify API doc",
+    "description": "API Documentation",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/register": {
+      "post": {
+        "description": "User register",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "zakaribel@hotmail.com"
+                },
+                "username": {
+                  "example": "zakaria"
+                },
+                "password": {
+                  "example": "rsoldjknro56445VµM%"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & variable sent in url in case of success"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "description": "User login",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & variable sent in url in case of success"
+          }
+        }
+      }
+    },
+    "/dashboard": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "titre modifié"
+                },
+                "content": {
+                  "example": "contenu modifié"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+     
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+    
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "description": "User Logout",
+        "responses": {
+          "default": {
+            "description": "no response"
+          }
+        }
+      }
+    },
+    "/new": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": "Nothing, just a render..."
+          }
+        }
+      }
+    },
+    "/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "Nouveau titre.."
+                },
+                "content": {
+                  "example": "Nouveau contenu.."
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      }
+    },
+    "/{id}/comments": {
+      "post": {
+        "description": "User comment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "commentText": {
+                  "example": "ceci est un commentaire.."
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      }
+    },
+    "/{id}/like": {
+      "post": {
+        "description": "User likes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      }
+    },
+    "/{postId}/comments/{commentId}": {
+      "put": {
+        "description": "User comment modification",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "commentText": {
+                  "example": "commentaire modifié"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deleting comment",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Simple server error in case of an error & url varialbe sent to client"
+          }
+        }
+      }
+    }
+  },
+  
+    "Post": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "title": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Voici un titre de post.."
+                }
+              }
+            },
+            "content": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "voici un post.."
+                }
+              }
+            },
+            "comments": {
+                "type": "array", 
+                "items": {
+                "$ref": "#/definitions/Comment"  
+              }
+            }
+          }
+        }
+      }
+    },
+    "Comment": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                }
+              }
+            },
+            "text": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Voici un commentaire"
+                }
+              }
+            },
+            "createdAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date-time"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

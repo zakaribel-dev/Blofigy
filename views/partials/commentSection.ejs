@@ -1,0 +1,29 @@
+<div id="comments-section">
+    <h4>Commentaires :</h4>
+    <% if (post.comments && post.comments.length > 0) { %>
+        <ul class="comments-list">
+            <% post.comments.forEach(comment => { %>
+                <li class="comment-item">
+                    <p class="comment-text"><%= comment.text %></p>
+                    <small class="comment-meta">
+                        Commenté par <%= comment.author ? comment.author.username : 'Inconnu' %> 
+                        - <%= new Date(comment.createdAt).toLocaleDateString() %>
+                    </small>
+
+                    <% if (user && comment.author && user.userId.toString() === comment.author._id.toString()) { %>
+                        <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=PUT" method="POST" class="edit-comment-form">
+                            <input type="text" name="commentText" required class="comment-input">
+                            <button type="submit" class="edit-button">Modifier le commentaire</button>
+                        </form>
+
+                        <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" class="delete-comment-form">
+                            <button type="submit" class="delete-button">Supprimer le commentaire</button>
+                        </form>
+                    <% } %>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p class="no-comments">Aucun commentaire pour cet article.</p>
+    <% } %>
+</div>

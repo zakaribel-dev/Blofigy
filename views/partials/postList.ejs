@@ -1,0 +1,39 @@
+<div id="posts-section" class="posts-container">
+    <h2>Articles</h2>
+    <% if (posts.length === 0) { %>
+        <p class="no-posts">Aucun article disponible pour le moment.</p>
+
+        <button onclick="window.location.href='/posts/new'">Créer un nouvel article</button>
+
+    <% } else { %>
+        <ul class="posts-list">
+            <% posts.forEach(post => { %>
+                <li class="post-item">
+                    <h3 class="post-title"><%= post.title %></h3>
+                    <p class="post-content"><%= post.content %></p>
+                
+                <small class="post-meta">
+                  Post écrit par <%= post.author ? post.author.username : 'Inconnu' %> - <%= new Date(post.createdAt).toLocaleDateString() %>
+                </small>
+
+                <form action="/posts/<%= post._id %>/like" method="POST">
+                    <button type="submit" class="like-button">
+                        <img src="/like.png" alt="Like" class="like-icon">
+                        <span><%= post.likes.length %></span>
+                    </button>
+                </form>
+                
+
+                    <%- include('editDeletePostForm', { post, user }) %>
+
+                    <%- include('commentSection', { post, user }) %>
+
+                    <form action="/posts/<%= post._id %>/comments" method="POST" class="add-comment-form">
+                        <input type="text" name="commentText" placeholder="Ajouter un commentaire..." required class="comment-input">
+                        <button type="submit" class="comment-button">Commenter</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+</div>

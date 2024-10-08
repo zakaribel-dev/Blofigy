@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/header') %>
+
+<body>
+    <h1>Créer un Nouvel Article</h1>
+    <form action="/posts" method="POST">
+        <input type="text" name="title" placeholder="Titre de l'article" required>
+        <textarea name="content" placeholder="Contenu de l'article" required></textarea>
+        <button type="submit">Publier</button>
+    </form>
+</body>
+</html>

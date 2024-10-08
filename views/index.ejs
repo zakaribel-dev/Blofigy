@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/header') %> 
+
+<body>
+    <div class="container">
+        <h1>Bienvenue sur Blogify</h1>
+
+        <% if (error) { %>
+            <div class="error-message"><%= error %></div>
+        <% } %>
+
+        <% if (message) { %>
+            <div class="message"><%= message %></div>
+        <% } %>
+
+        <% if (!user) { %>
+            <div id="auth-section">
+                <div class="auth-form">
+                    <h2>Connexion</h2>
+                    <form action="/users/login" method="POST" class="login-form">
+                        <input type="email" name="email" placeholder="Email" required class="auth-input">
+                        <input type="password" name="password" placeholder="Mot de passe" required class="auth-input">
+                        <button type="submit" class="auth-button">Connexion</button>
+                    </form>
+                </div>
+
+                <% if (!registered) { %> 
+                <div class="auth-form">
+                    <h2>Inscription</h2>
+                    <form action="/users/register" method="POST" class="register-form">
+                        <input type="text" name="username" placeholder="Nom d'utilisateur" required class="auth-input">
+                        <input type="email" name="email" placeholder="Email" required class="auth-input">
+                        <input type="password" name="password" placeholder="Mot de passe" required class="auth-input">
+                        <button type="submit" class="auth-button">Inscription</button>
+                    </form>
+                </div>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h2>Bonjour, <%= user.username %> !</h2>
+
+            <a href="/users/dashboard">Accéder au tableau de bord</a>
+
+            <form action="/users/logout" method="POST">
+                <button type="submit">Déconnexion</button>
+            </form>
+
+            <%- include('newPostForm') %>
+
+            <%- include('partials/postList', { posts, user }) %> 
+        <% } %>
+    </div>
+</body>
+
+</html>

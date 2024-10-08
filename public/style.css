@@ -1,0 +1,154 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.like-button {
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 5px !important;
+}
+
+.like-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+
+.like-button span {
+  font-weight: bold;
+  color: white !important;
+}
+
+#posts-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#posts-section li {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+#comments-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#comments-section li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-left: 3px solid #007bff;
+  border-radius: 4px;
+}
+
+#comments-section form {
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.message {
+  color: #ffffff;
+  background-color: rgb(15, 156, 34);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.edit-delete-post {
+  margin-top: 10px;
+}
+
+.edit-delete-post form {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#auth-section {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+small {
+  color: #666;
+  display: block;
+  margin-top: 5px;
+}
+
+p {
+  margin: 10px 0;
+}

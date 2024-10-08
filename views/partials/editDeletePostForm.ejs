@@ -1,0 +1,13 @@
+<% if (user && post.author && user.userId.toString() === post.author._id.toString()) { %>
+    <div class="edit-delete-post">
+        <form action="/posts/<%= post._id %>?_method=PUT" method="POST" class="edit-form">
+            <input type="text" name="title" placeholder="Modifier le titre de l'article" required class="edit-input">
+            <textarea name="content" placeholder="Modifier l'article" required class="edit-textarea"></textarea>
+            <button type="submit" class="edit-button">Modifier le post</button>
+        </form>
+
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST" class="delete-form">
+            <button type="submit" class="delete-button">Supprimer le post</button>
+        </form>
+    </div>
+<% } %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/header') %>
+
+<body>
+    <div class="container">
+        <button onclick="window.location.href='/'">Précédent</button>
+        <h1>Tableau de bord de <%= user.username %></h1>
+        
+
+        <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+            <input type="text" name="username" value="<%= user.username %>" required>
+            <input type="email" name="email" value="<%= user.email %>" required>
+            <button type="submit">Modifier</button>
+        </form>
+
+        <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+            <button type="submit">Supprimer mon compte</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
