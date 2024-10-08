@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const methodOverride = require("method-override"); // PÖURQUOI method override ? En fait pour les methodes DELETE ET PUT,
+const methodOverride = require("method-override");// PÖURQUOI method override ? En fait pour les methodes DELETE ET PUT,
 // je dois "tromper" express en faisant croire que ce sont des methodes post.
 // Du coup dans mes requêtes client j'ia juste à preciser un parametre "_method=<vraie_methode>"
 const cookieParser = require("cookie-parser");
@@ -13,17 +13,24 @@ require('dotenv').config();
 const app = express();
 
 const port = process.env.PORT || 3000; 
-const uri = process.env.MONGODB_URI; 
+const uri = process.env.MONGODB_URI;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+const sanitizer = require ("perfect-express-sanitizer")
+app.use(
+    sanitizer.clean({
+        xss: true,
+        crsf: true,
+    })
+);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(cookieParser());
-
 
 app.use(checkUser);
 

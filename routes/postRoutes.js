@@ -95,7 +95,6 @@ router.post('/:id/comments', async (req, res) => {
 
     }
   });
-  
 
   // like un post
 router.post('/:id/like', async (req, res) => {
