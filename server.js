@@ -41,10 +41,10 @@ mongoose.connect(uri)
   .catch((err) => console.log("Blogify DB connection error:", err));
 
 
-  // la main page
+ // la main page
   app.get('/', async (req, res) => {
     try {
-      const posts = await Post.find({})  
+      const posts = await Post.find({})   // je recupere les username des auteurs (posts et comments) via des réferences 
         .populate('author')    
         .populate('comments.author')
         .exec();
@@ -53,7 +53,7 @@ mongoose.connect(uri)
         const message = req.query.message || null;
         const registered = req.query.registered === 'true'; // je convertis la variable get en booleen avec l'égalité absolue "==="
         const error = req.query.error || null
-        
+
       res.render('index', { user: req.user, posts, error,  message, registered});
     } catch (err) {
       console.log('Error fetching posts:', err);

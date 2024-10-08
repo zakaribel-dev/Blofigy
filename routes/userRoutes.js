@@ -11,7 +11,7 @@ router.post('/register', async (req, res) => {
       const username = req.body.username
       const password = req.body.password
 
-      const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+      const existingUser = await User.findOne({ $or: [{ email }, { username }] }); // or pour verifier si tel OU tel valeur est en bdd
 
       if (existingUser) {
         return res.redirect('/?error=utilisateur déjà existant !&registered=false'); 
@@ -21,8 +21,8 @@ router.post('/register', async (req, res) => {
       const user = new User({ email, username, password: hashedPassword });
       await user.save();
 
-
       return res.redirect('/?message=Compte créé avec succès !&registered=true'); 
+      
     } catch (err) {
       console.log('Error during registration:', err);
       return res.render('index', { error: 'Erreur lors de la création du compte.', user: null });

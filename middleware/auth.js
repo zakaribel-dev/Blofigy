@@ -13,7 +13,7 @@ function checkUser(req, res, next) {
       console.log("omg.. erreur avec le token..", err);
       req.user = null; 
     } else {
-      req.user = user; 
+      req.user = user; // j'applique mon user "tokenifié" si j'puis dire à mon user de mes requêtes
     }
     next(); 
 
