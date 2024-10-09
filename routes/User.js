@@ -20,12 +20,13 @@ router.post('/register', async (req, res) => {
 
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = new User({ email, username, password: hashedPassword });
+    
       await user.save();
-
+      
       return res.redirect('/?message=Compte créé avec succès !&registered=true'); 
 
     } catch (err) {
-      console.log('Error during registration:', err);
+      console.log('Erreur lors de la création du compte.', err);
       return res.render('index', { error: 'Erreur lors de la création du compte.', user: null });
   }
 });

@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
       res.redirect('/');
 
   } catch (err) {
-      console.log('Error creating post:', err);
+      console.log('Erreur création post:', err);
       return res.redirect('/?error=Erreur de création article'); 
   }
 });
@@ -49,7 +49,7 @@ router.put('/:id', async (req, res) => {
 
         res.redirect('/');
     } catch (err) {
-        console.log('Error updating post:', err);
+        console.log('Erreur maj post:', err);
         return res.redirect('/?error=Erreur de mise à jour article'); 
 
     }
@@ -66,7 +66,7 @@ router.delete('/:id', async (req, res) => {
         await Post.deleteOne({ _id: id });
         res.redirect('/');
     } catch (err) {
-        console.log('Error deleting post:', err);
+        console.log('Erreur de suppression article:', err);
         return res.redirect('/?error=Erreur de suppression article'); 
 
     }
@@ -90,7 +90,7 @@ router.post('/:id/comments', async (req, res) => {
   
       res.redirect('/');
     } catch (err) {
-      console.log('Error adding comment:', err);
+      console.log('Erreur ajout commentair:', err);
       return res.redirect('/?error=Erreur ajout commentaire'); 
     }
   });
@@ -113,7 +113,7 @@ router.post('/:id/like', async (req, res) => {
       await post.save();
       res.redirect('/');
   } catch (err) {
-      console.log('Error liking or unlike post:', err);
+      console.log('Erreur de like / delike article:', err);
       return res.redirect('/?error=Erreur de like / delike article'); 
 
   }

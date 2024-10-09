@@ -12,7 +12,7 @@ const { checkUser } = require('./middleware/auth');
 require('dotenv').config();
 const app = express();
 
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT
 const uri = process.env.MONGODB_URI;
 
 app.set('view engine', 'ejs');
@@ -61,9 +61,10 @@ mongoose.connect(uri)
         const registered = req.query.registered === 'true'; // je convertis la variable get en booleen avec l'égalité absolue "==="
         const error = req.query.error || null
 
-      res.render('index', { user: req.user, posts, error,  message, registered});
+      res.render('index', { user: req.user, posts, error, message, registered});
     } catch (err) {
-      console.log('Error fetching posts:', err);
+      console.log('Erreur de recup des posts :', err);
     }
   });
   
+module.exports = app
